@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  div.container
+    div.row(style="padding: 15px")
+      h1 Hi #{user.nickname} you are a #{user.gender}
+    div.row 
+      img(src=user.picture)
+      p(style="padding: 20px;") Your google oauth ID is: #{user.user_id}")  
+    div.row 
+      p(style="padding: 20px;") People reffer to you as #{user.name.givenName} #{user.name.familyName} (According to data from: #{user._json.updated_at})
