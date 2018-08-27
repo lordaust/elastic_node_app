@@ -9,3 +9,7 @@ block content
       p(style="padding: 20px;") Your google oauth ID is: #{user.user_id}")  
     div.row 
       p(style="padding: 20px;") People reffer to you as #{user.name.givenName} #{user.name.familyName} (According to data from: #{user._json.updated_at})
+      
+    p(style="padding: 20px;") You can contact me at #{user._json.email}.
+      
+    p(style="padding: 20px;") My email is verified :#{user._json.email_verified}!

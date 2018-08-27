@@ -19,7 +19,7 @@ router.get('/', passport.authenticate('auth0', {
   redirectUri: myVar.callbackURL,
   responsetype: 'code',
   audience: 'https://payex-poc1.eu.auth0.com/userinfo',
-  scope: 'openid profile'}),
+  scope: 'openid email profile eCom_role'}),
     function(req, res){
       res.redirect('/');
     }

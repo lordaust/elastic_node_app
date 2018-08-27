@@ -93,21 +93,3 @@ function main(){
 });
 
 module.exports = router;
-
-  //
-  //     ,function (error, response,status) {
-  //         if (error){
-  //           console.log("search error: "+error);
-  //         }
-  //         else {
-  //           console.log("--- Response ---");
-  //           //console.log(response);
-  //           console.log("--- Hits ---");
-  //           page_views_data2 = response.hits.hits;
-  //           response.hits.hits.forEach(function(hit){
-  //             console.log(hit);
-  //           });
-  //         }
-  //     }
-  //   );
-  // }
