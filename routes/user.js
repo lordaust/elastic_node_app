@@ -3,6 +3,13 @@ var router = express.Router();
 
 router.get('/', function(req, res, next){
   console.log("We can see the user object from the request here:");
+
+  const now = new Date();
+
+  console.log(now);
+
+
+
   console.log(req.user);
   if(req.user) {
     res.render('user', {

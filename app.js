@@ -7,23 +7,16 @@ const session = require('express-session');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 
-const myVar = {
-    domain: 'payex-poc1.eu.auth0.com',
-    clientID: 't7vBWlBcENrs78QVjFF4hJuj9gZT2-iw',
-    clientSecret: '3wlKOWELwetHWZr8aMfychrosjgLzcJuO1-N4wh0KlLarqBnV7orQibsm6Ymtadk',
-    callbackURL: 'http://localhost:4000/callback'
-}
-
+// THIS IS THE ADFS ONE
 const strategy = new Auth0Strategy({
     domain: 'payex-poc1.eu.auth0.com',
-    clientID: 't7vBWlBcENrs78QVjFF4hJuj9gZT2-iw',
-    clientSecret: '3wlKOWELwetHWZr8aMfychrosjgLzcJuO1-N4wh0KlLarqBnV7orQibsm6Ymtadk',
+    clientID: 'QyFA455c3ECwksfw5szqZanxX6Z0eUy0',
+    clientSecret: 'jQx4wXf-3AFwSw_f2-UyP4uB8ApeoiWqmvAPoc8cWiXu-XmXpHuBOR-V34KIUci7',
     callbackURL: 'http://localhost:4000/callback'
 },
 function(accessToken, refreshToken, extraParam, profile, done){
   return done(null, profile);
-}
-)
+})
 
 passport.use(strategy);
 
@@ -35,9 +28,6 @@ passport.deserializeUser(function (user,done){
   done(null, user);
 });
 
-
-
-
 var home = require('./routes/index');
 var visitor = require('./routes/visitor');
 var callback = require('./routes/callback');
@@ -46,8 +36,8 @@ var logout = require('./routes/logout');
 var user = require('./routes/user');
 var failure = require('./routes/failure');
 
-
 var app = express();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -56,11 +46,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(
-  session({
+app.use(session({
     secret: 'your-secret-key',
-    resave: true,
-    saveUnitialized: true
+    cookie: {},
+    resave: false,
+    saveUnitialized: false
   })
 );
 

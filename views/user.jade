@@ -3,7 +3,8 @@ extends layout
 block content
   div.container
     div.row(style="padding: 15px")
-      h1 Hi #{user.nickname} you are a #{user.gender}
+        Hi #{user.nickname} you are a #{user.gender}
+
     div.row 
       img(src=user.picture)
       p(style="padding: 20px;") Your google oauth ID is: #{user.user_id}")  
